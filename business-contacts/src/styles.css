@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+.alert-danger{
+    color:#a94442;
+    background-color:#f2dede;
+    border-color:#ebccd1}
+
+.alert-danger hr{
+    border-top-color:#e4b9c0;
+    }
+ .fa-asterisk{
+     color:#a94442;
+     font-size: 8px;
+ }

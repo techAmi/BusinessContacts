@@ -1,0 +1,52 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">ngBContacts</a>
+    </div>
+   </div>
+</nav>
+<div class="container well">
+  <div class="col-lg-6">
+    <div class="row">
+      <button class="btn btn-info btn-lg" (click)="showAddNewBusinessModal()"> 新規企業</button>
+    </div>
+ </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div *ngIf="businesses">
+        <table class="table table-striped table-hover">
+          <thead >
+            <tr class="active">
+              <th>企業名</th>
+              <th>代表者名</th>
+              <th>カテゴリー</th>
+              <th>電話番号</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let business of businesses; let i = index ">
+              <td>{{business.company}}</td>
+              <td>{{business.representative}}</td>
+              <td>{{business.category}}</td>
+              <td>{{business.phone}}</td>
+              <td>
+                <button class="btn btn-active" (click)="showBusinessDetailsModal(business.$key)">詳細</button>
+                <button class="btn btn-primary" (click)="showEditBusinessModal(i, business.$key)">編集</button>
+                <button class="btn btn-danger" (click)="deleteBusiness(business.$key)">削除</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
