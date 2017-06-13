@@ -92,6 +92,32 @@ deleteBusiness(key){
   this._firebaseService.deleteBusiness(key);
 }
 
+// on up button clicked
+onUpBtnClick(key, index){
+  let business: Business;
+  for (let entry of this.businesses) {
+    console.log('entry ',entry);
+    if(entry.$key === key){
+      business = entry;
+    }
+  }
+  this.businesses[index] = this.businesses[index-1];
+  this.businesses[index-1] = business;
+}
+// on down button clicked
+
+onDownBtnClick(key, index){
+let business: Business;
+  for (let entry of this.businesses) {
+    console.log('entry ',entry);
+    if(entry.$key === key){
+      business = entry;
+    }
+  }
+  this.businesses[index] = this.businesses[index+1];
+  this.businesses[index+1] = business;
+}
+
 
 
   

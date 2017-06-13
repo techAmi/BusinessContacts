@@ -10,7 +10,7 @@ export class FirebaseService{
     categories: FirebaseListObservable<Category[]>;
     business: Business;
     public index: number;
-    public businesskey;
+    public businesskey: string;
 
     constructor(private _db: AngularFireDatabase){
 
@@ -19,7 +19,12 @@ export class FirebaseService{
         console.log('index', this.index);
         let business: Business;
         this.getBusinesses().subscribe(businesses => {
-            business = businesses[this.index];
+            for(let entry of businesses){
+                if(entry.$key === this.businesskey){
+                    business = entry;
+                }
+            }
+            //business = businesses[this.index];
         })
         console.log(business);
         return business;
