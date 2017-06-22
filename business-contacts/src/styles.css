@@ -11,3 +11,10 @@
      color:#a94442;
      font-size: 8px;
  }
+
+ .list-group-item{
+    border: none;
+ }
+ .list-group-item-text{
+     color: black;
+ }

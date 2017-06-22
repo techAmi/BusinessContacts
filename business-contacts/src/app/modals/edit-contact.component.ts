@@ -22,15 +22,15 @@ export class EditContactComponent extends DialogComponent<ConfirmModel, boolean>
   updBusiness : Business;
   public businessForm: FormGroup;
 
-  constructor(private _dialogService: DialogService, 
-              private _fb: FormBuilder, 
+  constructor(private _dialogService: DialogService,
+              private _fb: FormBuilder,
               private _firebaseService: FirebaseService) {
     super(_dialogService);
     this.businessForm = _fb.group({
         company: new FormControl('', Validators.required),
         representative: new FormControl('', Validators.required),
         category: new FormControl('', Validators.required),
-        phone: new FormControl('',[ Validators.required, CustomValidators.phone('JP')]),
+        phone: new FormControl('', [ Validators.required, CustomValidators.phone('JP')]),
         email: new FormControl('', [Validators.required, CustomValidators.email]),
         city: new FormControl('', Validators.required),
         address: new FormControl('', Validators.required),
@@ -41,7 +41,7 @@ export class EditContactComponent extends DialogComponent<ConfirmModel, boolean>
     this.businessForm.valueChanges.subscribe(data => this.onValueChanged(data));
   }
 
-  ngOnInit(){
+  ngOnInit() {
 
     this._firebaseService.getCategories().
     subscribe(categories => {
@@ -63,7 +63,6 @@ export class EditContactComponent extends DialogComponent<ConfirmModel, boolean>
     });
 
     console.log('businessForm', this.businessForm);
-  
   }
 
   onValueChanged(data?: any){
@@ -76,7 +75,6 @@ export class EditContactComponent extends DialogComponent<ConfirmModel, boolean>
         // clear previous error messages if any
         this.formErrors[field] = '';
         const control = form.get(field);
-
         if (control && control.dirty && !control.valid) {
             const messages = this.validationMessages[field];
             for (const key in control.errors) {

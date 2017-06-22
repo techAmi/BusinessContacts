@@ -11,13 +11,40 @@
     </div>
    </div>
 </nav>
-<div class="container well">
-  <div class="col-lg-6">
+<div class="container">
+  <div class="jumbotron">
     <div class="row">
-      <button class="btn btn-info btn-lg" (click)="showAddNewBusinessModal()"> 新規企業</button>
+      <div class="col-lg-6">
+        <h1>ngBContacts</h1>
+        <p>All your business contacts in one place, and More!</p>
+        <p><button class="btn btn-primary btn-lg" (click)="showAddNewBusinessModal()" >新規企業</button></p>
+      </div>
+      <div class="col-lg-6">
+        <div class="row">
+          <div class="form-group">
+            <label class="control-label" for="focusedInput">カスタムカテゴリーを追加</label>
+            <div class="input-group">
+              <input class="form-control" id="focusedInput" type="text" value="" #category placeholder="カテゴリー(例：IT)">
+              <span class="input-group-btn">
+                <button class="btn btn-primary" type="button" (click)="onAddCategoryBtnClick(category.value)">追加</button>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group">
+            <label class="control-label" for="focusedInput">Search your business contacts</label>
+          </div>
+          <input class="form-control" id="focusedInput" type="text" value="" #category placeholder="search your business contacts">
+         
+        </div>
+     
+      </div>
     </div>
- </div>
+    
 </div>
+</div>
+
 <div class="container">
   <div class="row">
     <div class="col-lg-12">

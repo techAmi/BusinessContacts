@@ -1,4 +1,4 @@
-export interface Business{
+export interface Business {
     $key?: string;
     company?: string;
     representative?: string;
@@ -11,5 +11,5 @@ export interface Business{
     zipcode?: string;
     phone?: string;
     email?: string;
-    created_at: string; 
+    created_at: string;
 }

@@ -5,7 +5,70 @@
                 <h4 class="modal-title">Contact details</h4>
         </div>
         <div class="modal-body">
-            
+            <div class="list-group">
+                <div class="list-group-item">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <h4 class="text-primary">企業名</h4>        
+                        </div>
+                        <div class="col-lg-8">
+                            <h5 class="" *ngIf="business.company">{{business.company}}</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="list-group-item">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <h4 class="text-primary">代表者</h4>
+                        </div>
+                        <div class="col-lg-8">
+                            <h5 class="" *ngIf="business.representative">{{business.representative}}</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="list-group-item">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <h4 class="text-primary">カテゴリー</h4>
+                        </div>
+                        <div class="col-lg-8">
+                            <h5 class="" *ngIf="business.category">{{business.category}}</h5>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+                <div  class="list-group-item">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <h4 class="text-primary">電話番号</h4>
+                        </div>
+                        <div class="col-lg-8">
+                            <h5 class="" *ngIf="business.phone">{{business.phone}}</h5>
+                        </div>
+                    </div>
+                </div>
+                <div  class="list-group-item">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <h4 class="text-primary">Email</h4>
+                        </div>
+                        <div class="col-lg-8">
+                            <h5 class="" *ngIf="business.email">{{business.email}}</h5>
+                        </div>
+                    </div>
+                </div>
+                <div  class="list-group-item">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <h4 class="text-primary">備考</h4>
+                        </div>
+                        <div class="col-lg-8">
+                            <h5 class="" *ngIf="business.description">{{business.description}}</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         
     </div>

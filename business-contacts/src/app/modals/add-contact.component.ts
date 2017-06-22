@@ -17,12 +17,12 @@ export class AddContactComponent extends DialogComponent<ConfirmModel, boolean> 
   title: string;
   message: string;
   categories: Category[];
-  newBusiness : Business;
+  newBusiness: Business;
   public newBusinessForm: FormGroup;
   public isValid: boolean = true;
 
-  constructor(private _dialogService: DialogService, 
-              private _fb: FormBuilder, 
+  constructor(private _dialogService: DialogService,
+              private _fb: FormBuilder,
               private _firebaseService: FirebaseService) {
     super(_dialogService);
     this.newBusinessForm = _fb.group({
@@ -111,12 +111,12 @@ export class AddContactComponent extends DialogComponent<ConfirmModel, boolean> 
 
     }
     console.log('form validity: ', this.isValid);
-    if(this.isValid){
+    if (this.isValid) {
       this.newBusiness = {
         category: this.newBusinessForm.controls['category'].value,
         representative: this.newBusinessForm.controls['representative'].value,
         city: this.newBusinessForm.controls['city'].value,
-        created_at: '0', 
+        created_at: '0',
         company: this.newBusinessForm.controls['company'].value,
         description: this.newBusinessForm.controls['description'].value,
         years_in_business: this.newBusinessForm.controls['yearsInBusiness'].value,
