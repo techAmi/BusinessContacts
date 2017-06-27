@@ -22,20 +22,47 @@
       <div class="col-lg-6">
         <div class="row">
           <div class="form-group">
-            <label class="control-label" for="focusedInput">カスタムカテゴリーを追加</label>
+            <p class="control-label" for="focusedInput">カスタムカテゴリーを追加</p>
+            <div class="progress">
+              <div class="progress-bar" style="width: 100%;"></div>
+            </div>
             <div class="input-group">
               <input class="form-control" id="focusedInput" type="text" value="" #category placeholder="カテゴリー(例：IT)">
               <span class="input-group-btn">
-                <button class="btn btn-primary" type="button" (click)="onAddCategoryBtnClick(category.value)">追加</button>
+                <button class="btn btn-primary" type="button" (click)="onAddCategoryBtnClick(category.value)">Add Category</button>
               </span>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="form-group">
-            <label class="control-label" for="focusedInput">Search your business contacts</label>
+            <p class="control-label" for="focusedInput">Search your business contacts</p>
+            <div class="progress">
+              <div class="progress-bar" style="width: 100%;"></div>
+            </div>
+            <div class="row">
+              <div class="col-lg-8  clearfix">
+                <p>Search by: </p>
+              </div>
+              <div class="col-lg-3 col-lg-offset-1">
+              <div class="dropdown">
+                  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" value="value">
+                    {{value}}
+                    <span class="caret"></span>
+                  </button>
+                  <ng-container *ngIf="businessKeys">
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1"  >
+                      <li *ngFor="let businessKey of businessKeys; let i=index"><a #value (click)="onBusinessKeyClick(businessKey.name)"> {{businessKey.name}}</a></li>
+                    </ul>
+                  </ng-container>
+                  
+              </div>
+              </div>
+            </div>
+            <input class="form-control" id="focusedInput" type="text" value="" [(ngModel)]="searchStr" name="searchStr" placeholder="search your business contacts" (keyup)="searchBusinesses()">
           </div>
-          <input class="form-control" id="focusedInput" type="text" value="" #category placeholder="search your business contacts">
+          
+         
          
         </div>
      

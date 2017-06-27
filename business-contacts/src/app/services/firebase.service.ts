@@ -13,7 +13,7 @@ export class FirebaseService {
     public index: number;
     public businesskey: string;
 
-    constructor(private _db: AngularFireDatabase){
+    constructor(private _db: AngularFireDatabase) {
 
     }
     getBusiness() {
@@ -70,5 +70,32 @@ export class FirebaseService {
         console.log('will add a new business: ', newCategory);
         return this.categories.push(newCategory);
     }
+    searchBusiness(searchStr) {
+        if (searchStr !== '') {
+            console.log(searchStr);
+            this.businesses = this._db.list('/businesses', {
+                query: {
+                    orderByChild: 'company',
+                    equalTo: searchStr,
+                }
+            }) as
+            FirebaseListObservable<Business[]>;
+            console.log('search businesses ', this.businesses );
+        } else {
+            console.log('a null search string');
+            this.businesses = this._db.list('/businesses') as
+            FirebaseListObservable<Business[]>;
+            console.log('supposed to be all the businesses in db: ', this.businesses);
+        }
+        return this.businesses;
+    }
+
+    getAllBusinessKeys() {
+        let businessKeys;
+        businessKeys = this._db.list('/keys');
+        console.log(businessKeys);
+        return businessKeys;
+    }
+
 
 }

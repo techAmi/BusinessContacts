@@ -9,6 +9,7 @@ import { EditContactComponent } from './modals/edit-contact.component';
 import { DetailsContactComponent } from './modals/details-contact.component';
 import { ValidationService } from './services/validation.service';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -19,10 +20,14 @@ import { ValidationService } from './services/validation.service';
 })
 export class AppComponent implements OnInit {
   businesses: Business[];
+  business: Business;
   categories: Category[];
   newCategory: Category;
   appState: string;
   activeKey: string;
+  public searchStr: string;
+  public value = 'company';
+  public businessKeys;
   constructor(private _firebaseService: FirebaseService,
               private _dialogService: DialogService) {
   }
@@ -32,12 +37,19 @@ export class AppComponent implements OnInit {
           console.log(businesses);
           this.businesses = businesses;
     });
+    console.log('this.businesses ', this.businesses);
 
     this._firebaseService.getCategories().
         subscribe(categories => {
           console.log(categories);
           this.categories = categories;
     });
+    this._firebaseService.getAllBusinessKeys().
+    subscribe(businessKeys => {
+      this.businessKeys = businessKeys;
+      console.log('this.businessKeys ', this.businessKeys);
+    });
+    console.log(this.businessKeys)
   }
   onAddCategoryBtnClick(category: string) {
     console.log('some new category: ', category);
@@ -46,6 +58,16 @@ export class AppComponent implements OnInit {
     }
     this._firebaseService.addCategory(this.newCategory);
 
+  }
+  onBusinessKeyClick(value) {
+    this.value = value;
+    console.log(this.value)
+  }
+  searchBusinesses() {
+    this._firebaseService.searchBusiness(this.searchStr)
+    .subscribe(businesses => {
+      this.businesses = businesses;
+    });
   }
 
 

@@ -11,6 +11,8 @@ import { EditContactComponent } from './modals/edit-contact.component';
 import { DetailsContactComponent } from './modals/details-contact.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { FormsModule } from '@angular/forms';
+
 import { BootstrapModalModule } from 'ng2-bootstrap-modal';
 
 @NgModule({
@@ -22,11 +24,12 @@ import { BootstrapModalModule } from 'ng2-bootstrap-modal';
     DetailsContactComponent
   ],
   imports: [
-    BrowserModule, 
+    BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     BootstrapModalModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule,
+    FormsModule
 
   ],
   providers: [],
